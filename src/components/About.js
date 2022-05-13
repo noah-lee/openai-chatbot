@@ -1,17 +1,20 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import { FaGithub } from "react-icons/fa";
 
 const About = () => {
   return (
     <Wrapper>
       <p>Created by Noah Lee</p>
-      <AccentLink target="_blank" href="https://github.com/noah-lee/openai-chatbot">
-          <FaGithub size={16}/>
-          GitHub
-        </AccentLink>
+      <AccentLink
+        target="_blank"
+        href="https://github.com/noah-lee/openai-chatbot"
+      >
+        <FaGithub size={16} />
+        <p>GitHub</p>
+      </AccentLink>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,7 +23,7 @@ const Wrapper = styled.div`
   gap: 8px;
 
   font-size: 12px;
-`
+`;
 
 const AccentLink = styled.a`
   display: flex;
@@ -32,4 +35,4 @@ const AccentLink = styled.a`
   cursor: pointer;
 `;
 
-export default About
+export default About;
