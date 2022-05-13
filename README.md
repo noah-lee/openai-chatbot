@@ -1,3 +1,3 @@
 # OpenAI Chatbot
 
-Live Preview: openai-chatbot.netlify.app/
+Live Preview: https://openai-chatbot.netlify.app/
