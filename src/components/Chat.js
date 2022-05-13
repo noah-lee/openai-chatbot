@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import Conversation from "./Conversation";
 import Form from "./Form";
+import About from "./About";
 
 const Chat = () => {
   return (
@@ -10,6 +11,7 @@ const Chat = () => {
       <Header />
       <Conversation />
       <Form />
+      <About />
     </Wrapper>
   );
 };
