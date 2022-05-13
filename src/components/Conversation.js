@@ -14,7 +14,7 @@ const Conversation = () => {
 
   return (
     <Wrapper>
-      {conversationLog.map((message) => (
+      {conversationLog.slice(0).reverse().map((message) => (
         <Message key={message.id} sender={message.sender}>
           {message.sender === "openai" && (
             <OpenAiIcon width="24px" heigth="24px" />

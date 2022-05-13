@@ -36,7 +36,7 @@ const Form = () => {
       sender: "openai",
       time: moment(new Date()).format("dddd, MMMM Do YYYY, h:mm a"),
     };
-    setConversationLog((prevState) => [...prevState, newMessage]);
+    setConversationLog((prevState) => [newMessage, ...prevState]);
   };
 
   const handleInputChange = (ev) => {
@@ -53,7 +53,7 @@ const Form = () => {
       sender: "user",
       time: moment(new Date()).format("dddd, MMMM Do YYYY, h:mm a"),
     };
-    setConversationLog((prevState) => [...prevState, newMessage]);
+    setConversationLog((prevState) => [newMessage, ...prevState ]);
     getOpenAiResponse();
   };
 
