@@ -28,7 +28,7 @@ const Conversation = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.ol`
   flex: 1;
 
   display: flex;
@@ -48,7 +48,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Message = styled.div`
+const Message = styled.li`
   display: flex;
   align-items: flex-start;
   gap: 8px;

@@ -34,7 +34,7 @@ const Header = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +46,7 @@ const OpenAiContainer = styled.div`
   gap: 8px;
 `;
 
-const OpenAiTitle = styled.h2`
+const OpenAiTitle = styled.h1`
   font-size: 24px;
   font-weight: bold;
   color: var(--color-red);
