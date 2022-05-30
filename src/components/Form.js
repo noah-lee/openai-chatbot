@@ -10,16 +10,19 @@ import { ChatContext } from "../contexts/ChatContext";
 const Form = () => {
   const { setConversationLog, engine, engines } = useContext(ChatContext);
   const [input, setInput] = useState("");
+  const [lastConversation, setLastConversation] = useState("");
 
   const getOpenAiResponse = async () => {
     const data = {
-      prompt: input,
-      temperature: 0.5,
+      prompt: lastConversation + "You: " + input + "\nFriend: ",
+      temperature: 1,
       max_tokens: 60,
       top_p: 1.0,
       frequency_penalty: 0.5,
       presence_penalty: 0.0,
+      stop: ["You:"],
     };
+    console.log(lastConversation + "You: " + input + "\nFriend: ");
     const res = await axios.post(
       `https://api.openai.com/v1/engines/${engine}/completions`,
       data,
@@ -36,6 +39,9 @@ const Form = () => {
       sender: "openai",
       time: moment(new Date()).format("dddd, MMMM Do YYYY, h:mm a"),
     };
+    setLastConversation(
+      "You: " + input + "\nFriend: " + res.data.choices[0].text.trim() + "\n"
+    );
     setConversationLog((prevState) => [newMessage, ...prevState]);
   };
 
@@ -53,7 +59,7 @@ const Form = () => {
       sender: "user",
       time: moment(new Date()).format("dddd, MMMM Do YYYY, h:mm a"),
     };
-    setConversationLog((prevState) => [newMessage, ...prevState ]);
+    setConversationLog((prevState) => [newMessage, ...prevState]);
     getOpenAiResponse();
   };
 
@@ -61,9 +67,9 @@ const Form = () => {
     <Wrapper onSubmit={handleSend}>
       <Input
         required={true}
-        placeholder={`Chat with ${engines.find(
-          (option) => option.id === engine
-        ).nickname}`}
+        placeholder={`Chat with ${
+          engines.find((option) => option.id === engine).nickname
+        }`}
         value={input}
         onChange={handleInputChange}
       />
